@@ -10,6 +10,21 @@ const student = {
 };
 const jsonobject = JSON.stringify(student);
 console.log(jsonobject);
+//output {"Name":"sakshi","Age":21}
+
+
+//nested object
+const person = {
+  Name: 'Sakshi',
+  Age: 21,
+  Address: {
+    City: 'Solapur',
+    Country: 'India'
+  }
+};
+const jsonObject1 = JSON.stringify(person);
+console.log(jsonObject1); 
+
 
 //number
 const jsonNumber = JSON.stringify(12);

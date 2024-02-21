@@ -8,4 +8,3 @@ console.log(b) //b=6
 
 
 
-
