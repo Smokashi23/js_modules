@@ -59,6 +59,15 @@ student.age=21;
 student.college='WIT'
 console.log(student)
 
+//student age and college gets updated
+//let student  =>error
+
+student={
+  Name: 'Ram'
+}
+console.log(student)
+//reassigning the object allowed
+
 
 //Declaring object using constant
 const college={
@@ -71,6 +80,12 @@ college.Rank='A+'
 console.log(college)
 delete college.Rank
 console.log(college)
+//college details gets updated
+
+college={
+  Name:'xyz'
+}
+//reassign in not allowed
 
 
 
