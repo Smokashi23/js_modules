@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Website</title>
+</head>
+<body>
+<form>
+    <h1>Enter Blog details</h1>
+    <label for="title" class="label">Title</label>
+    <input name="title" id="title" class="input" type="text" value="title"/><br><br>
+
+    <label for="content" class="label">Blog content</label>
+    <input name="content" id="content" class="input" type="textArea" value="content"/><br><br>
+
+    <label for="author" class="label">Author</label>
+    <input name="author" id="author" class="input" type="text" value="author"/><br><br>
+
+    <label for="email" class="label">Email</label>
+    <input name="email" id="email" class="input" type="email" value="email"/><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+  window.onload = function() {
+    let submitBlog = async (event) => {
+    event.preventDefault();
+
+    let title = document.getElementById("title").value
+    let content = document.getElementById("content").value
+    let author = document.getElementById("author").value
+    let email = document.getElementById("email").value
+
+    console.log(title, content, author, email)
+
+    if (title.length && content.length && author.length && email.length) {
+
+
+  fetch("https://reqres.in/api/posts", {
+    method: "POST",
+    body: JSON.stringify({
+        title: title,
+        content: content,
+        author: author,
+        email: email
+    }),
+    headers: {
+        "Content-type": "application/json"
+    }
+    }).then(res => {
+        console.log(res.json())
+    }).catch(err => {
+        console.log("Error")
+    }).finally(() => {
+        document.getElementById("message").innerHTML = `<h1>Form submitted successfully!</h1>`
+    })
+  }
+
+    else {
+        console.log("Incorrect input")
+    }
+}
+
+  document.querySelector("form").addEventListener("submit", submitBlog);
+};
+</script>
+</body>
+</html>
